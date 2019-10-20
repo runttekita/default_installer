@@ -29,7 +29,7 @@ def take_data():
     print("Author Name:")
     global author
     author = input()
-    print("Description")
+    print("Description:")
     global desc
     desc = input()
     print("Downloading the Default...")
