@@ -13,10 +13,10 @@ desc = ""
 
 
 def take_data():
-    print("Mod ID (no spaces):")
+    print("Mod ID (no spaces, lowercase first letter):")
     global id, name, steam, author, desc
     id = input()
-    if " " in id:
+    if " " in id or id[0].isupper:
         print("No spaces in ID allowed!")
         take_data()
         return
@@ -78,6 +78,7 @@ for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
                 newLine = newLine.replace("TheDefault", id.capitalize())
                 newLine = newLine.replace("DefaultMod", f"{id.capitalize()}Mod")
                 newLine = newLine.replace("defaultCharacter", f"{id}Character")
+                newLine = newLine.replace("defaultMod", f"{id}Mod")
                 newLines.append(newLine)
         with open(os.path.join(root, java), "w") as f:
             f.writelines(newLines)
