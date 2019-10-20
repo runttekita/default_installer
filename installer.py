@@ -14,23 +14,19 @@ desc = ""
 
 def take_data():
     print("Mod ID (no spaces):")
-    global id
+    global id, name, steam, author, desc
     id = input()
     if " " in id:
         print("No spaces in ID allowed!")
         take_data()
         return
     print("Mod Name:")
-    global name
     name = input()
     print("Steam Directory:")
-    global steam
     steam = input()
     print("Author Name:")
-    global author
     author = input()
     print("Description:")
-    global desc
     desc = input()
     print("Downloading the Default...")
 
@@ -66,12 +62,12 @@ os.rename(
 print("Renamed resource folder")
 os.rename(
     f"./{id}/src/main/resources/{id}Resources/images/char/defaultCharacter",
-    f"./{id}/src/main/resources/{id}Resources/images/char/{id}Character"
+    f"./{id}/src/main/resources/{id}Resources/images/char/{id}Character",
 )
 print("Renamed character folder")
 
 print("Refactoring package names")
-for root, subdir, file in os.walk(f'./{id}/src/main/java/{id}/'):
+for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
     for java in file:
         with open(os.path.join(root, java), "r+") as f:
             lines = f.readlines()
