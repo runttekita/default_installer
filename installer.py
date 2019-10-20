@@ -67,7 +67,7 @@ os.rename(
 print("Renamed character folder")
 print("Renamed folders")
 
-print("Refactoring package names")
+print("Refactoring files")
 for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
     for java in file:
         with open(os.path.join(root, java), "r+") as f:
@@ -79,10 +79,15 @@ for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
                 newLine = newLine.replace("DefaultMod", f"{id.capitalize()}Mod")
                 newLine = newLine.replace("defaultCharacter", f"{id}Character")
                 newLine = newLine.replace("defaultMod", f"{id}Mod")
+                newLine = newLine.replace(
+                    "A base for Slay the Spire to start your own mod from, feat. the Default.",
+                    desc,
+                )
+                newLine = newLine.replace("Gremious", author)
                 newLines.append(newLine)
         with open(os.path.join(root, java), "w") as f:
             f.writelines(newLines)
-print("Refactored package names")
+print("Refactored files")
 
 print("Renaming Files")
 os.rename(
