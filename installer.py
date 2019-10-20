@@ -64,6 +64,11 @@ os.rename(
     f"./{id}/src/main/resources/{id}Resources",
 )
 print("Renamed resource folder")
+os.rename(
+    f"./{id}/src/main/resources/dabResources/images/char/defaultChar",
+    f"./{id}/src/main/resources/dabResources/images/char/{id}Char"
+)
+print("Renamed character folder")
 
 
 print("Refactored folder names")
