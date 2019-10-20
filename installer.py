@@ -76,7 +76,7 @@ for root, subdir, file in os.walk(f'./{id}/src/main/java/{id}/'):
         with open(os.path.join(root, java), "r+") as f:
             lines = f.readlines()
             lines[0] = lines[0].replace("theDefault", id)
-            with open("test.txt", "w") as f:
-                f.writelines(lines)
+        with open(os.path.join(root, java), "w") as f:
+            f.writelines(lines)
 
 print("Refactored folder names")
