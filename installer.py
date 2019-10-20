@@ -15,7 +15,7 @@ desc = ""
 def take_data():
     global id, name, steam, author, desc, group_id
     print("Group ID (no spaces):")
-    group_id = ""
+    group_id = input()
     if " " in group_id:
         print("No spaces in group id")
         take_data()
@@ -76,7 +76,7 @@ print("Renamed folders")
 print("Refactoring files")
 for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
     for java in file:
-        with open(os.path.join(root, java), "r+") as f:
+        with open(os.path.join(root, java), "r") as f:
             lines = f.readlines()
             newLines = []
             for newLine in lines:
@@ -95,18 +95,25 @@ for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
         with open(os.path.join(root, java), "w") as f:
             f.writelines(newLines)
 
-with open(f"./{id}/pom.xml", "r+") as f:
+with open(f"./{id}/pom.xml", "r") as f:
     lines = f.readlines()
     newLines = []
     for newLine in lines:
         newLine = newLine.replace("defaultmod", group_id)
         newLine = newLine.replace("DefaultMod", id)
         newLine = newLine.replace("C:/My Stuff/Games/Steam/steamapps", steam)
+        newLines.append(newLine)
+    with open(f"./{id}/pom.xml", "w") as f:
+        f.writelines(newLines)
 print("Refactored files")
 
 print("Renaming Files")
 os.rename(
     f"./{id}/src/main/java/{id}/DefaultMod.java",
     f"./{id}/src/main/java/{id}/{id.capitalize()}Mod.java",
+)
+os.rename(
+    f"./{id}/src/main/java/{id}/characters/TheDefault.java",
+    f"./{id}/src/main/java/{id}/characters/{id.capitalize()}.java",
 )
 print("Renamed files")
