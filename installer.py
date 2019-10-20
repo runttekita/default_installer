@@ -77,6 +77,7 @@ for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
                 newLine = newLine.replace("theDefault", id)
                 newLine = newLine.replace("TheDefault", id.capitalize())
                 newLine = newLine.replace("DefaultMod", f"{id.capitalize()}Mod")
+                newLine = newLine.replace("defaultCharacter", f"{id}Character")
                 newLines.append(newLine)
         with open(os.path.join(root, java), "w") as f:
             f.writelines(newLines)
