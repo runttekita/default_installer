@@ -3,7 +3,7 @@ import zipfile
 import os
 import shutil
 
-
+group_id = ""
 id = ""
 name = ""
 dir = "."
@@ -13,8 +13,14 @@ desc = ""
 
 
 def take_data():
-    print("Mod ID (no spaces, lowercase first letter):")
-    global id, name, steam, author, desc
+    global id, name, steam, author, desc, group_id
+    print("Group ID (no spaces):")
+    group_id = ""
+    if " " in group_id:
+        print("No spaces in group id")
+        take_data()
+        return
+    print("Artifact ID (no spaces, lowercase first letter):")
     id = input()
     if " " in id or id[0].isupper():
         print("Cannot have spaces or uppercase letters as first letter in id")
@@ -88,6 +94,8 @@ for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
                 newLines.append(newLine)
         with open(os.path.join(root, java), "w") as f:
             f.writelines(newLines)
+
+
 print("Refactored files")
 
 print("Renaming Files")
