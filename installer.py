@@ -73,11 +73,10 @@ for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
         with open(os.path.join(root, java), "r+") as f:
             lines = f.readlines()
             newLines = []
-            for x in lines:
-                if "theDefault" in x:
-                    newLines.append(x.replace("theDefault", id))
-                if "TheDefault" in x:
-                    newLines.append(x.replace("TheDefault", id.capitalize()))
+            for newLine in lines:
+                newLine = newLine.replace("theDefault", id)
+                newLine = newLine.replace("TheDefault", id.capitalize)
+                newLines.append(newLine)
         with open(os.path.join(root, java), "w") as f:
             f.writelines(newLines)
 print("Refactored package names")
