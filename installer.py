@@ -32,7 +32,7 @@ def take_data():
     print("Description")
     global desc
     desc = input()
-    print("Downloading The Default...")
+    print("Downloading the Default...")
 
 
 take_data()
