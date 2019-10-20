@@ -195,13 +195,13 @@ os.rename(
 )
 
 os.rename(
-    f"./{id}/src/main/resources/{id}Resources/images/char/wammyChar/theDefaultAnimation.autosave.scml",
-    f"./{id}/src/main/resources/{id}Resources/images/char/wammyChar/{id}Animation.autosave.scml",
+    f"./{id}/src/main/resources/{id}Resources/images/char/{id}Character/Spriter/theDefaultAnimation.autosave.scml",
+    f"./{id}/src/main/resources/{id}Resources/images/char/{id}Character/Spriter/{id}Animation.autosave.scml",
 )
 
 os.rename(
-    f"./{id}/src/main/resources/{id}Resources/images/char/wammyChar/theDefaultAnimation.scml",
-    f"./{id}/src/main/resources/{id}Resources/images/char/wammyChar/{id}Animation.scml",
+    f"./{id}/src/main/resources/{id}Resources/images/char/{id}Character/Spriter/theDefaultAnimation.scml",
+    f"./{id}/src/main/resources/{id}Resources/images/char/{id}Character/Spriter/{id}Animation.scml",
 )
 
 print("Renamed files")
