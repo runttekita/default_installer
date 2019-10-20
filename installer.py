@@ -95,7 +95,13 @@ for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
         with open(os.path.join(root, java), "w") as f:
             f.writelines(newLines)
 
-
+with open(f"./{id}/pom.xml", "r+") as f:
+    lines = f.readlines()
+    newLines = []
+    for newLine in lines:
+        newLine = newLine.replace("defaultmod", group_id)
+        newLine = newLine.replace("DefaultMod", id)
+        newLine = newLine.replace("C:/My Stuff/Games/Steam/steamapps", steam)
 print("Refactored files")
 
 print("Renaming Files")
