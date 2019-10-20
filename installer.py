@@ -72,8 +72,9 @@ print("Renamed character folder")
 
 print("Refactoring package names")
 for root, subdir, file in os.walk(f'./{id}/src/main/java/{id}/'):
-    with open(file) as f:
-        for line in f:
-            f.write(line.replace("package theDefault", f"package {id}"))
+    for java in file:
+        with open(os.path.join(root, java)) as f:
+            for line in f:
+                f.write(line.replace("package theDefault", f"package {id}"))
 
 print("Refactored folder names")
