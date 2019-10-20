@@ -65,10 +65,15 @@ os.rename(
 )
 print("Renamed resource folder")
 os.rename(
-    f"./{id}/src/main/resources/dabResources/images/char/defaultChar",
-    f"./{id}/src/main/resources/dabResources/images/char/{id}Char"
+    f"./{id}/src/main/resources/{id}Resources/images/char/defaultCharacter",
+    f"./{id}/src/main/resources/{id}Resources/images/char/{id}Character"
 )
 print("Renamed character folder")
 
+print("Refactoring package names")
+for root, subdir, file in os.walk(f'./{id}/src/main/java/{id}/'):
+    with open(file) as f:
+        for line in f:
+            f.write(line.replace("package theDefault", f"package {id}"))
 
 print("Refactored folder names")
