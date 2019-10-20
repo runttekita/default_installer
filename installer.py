@@ -16,8 +16,8 @@ def take_data():
     print("Mod ID (no spaces, lowercase first letter):")
     global id, name, steam, author, desc
     id = input()
-    if " " in id or id[0].isupper:
-        print("No spaces in ID allowed!")
+    if " " in id or id[0].isupper():
+        print("Cannot have spaces or uppercase letters as first letter in id")
         take_data()
         return
     print("Mod Name:")
