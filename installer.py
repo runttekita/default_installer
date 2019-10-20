@@ -67,21 +67,24 @@ os.rename(
 print("Renamed character folder")
 print("Renamed folders")
 
-print("Refactoring package and imports")
+print("Refactoring package names")
 for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
     for java in file:
         with open(os.path.join(root, java), "r+") as f:
             lines = f.readlines()
-            for line in lines:
-                if "theDefault" in line:
-                    line = line.replace("theDefault", id)
+            newLines = []
+            for x in lines:
+                if "theDefault" in x:
+                    newLines.append(x.replace("theDefault", id))
+                if "TheDefault" in x:
+                    newLines.append(x.replace("TheDefault", id.capitalize()))
         with open(os.path.join(root, java), "w") as f:
-            f.writelines(lines)
-print("Refactored package and imports")
+            f.writelines(newLines)
+print("Refactored package names")
 
 print("Renaming Files")
 os.rename(
     f"./{id}/src/main/java/{id}/DefaultMod.java",
-    f"./{id}/src/main/java/{id}/{id.capitalize()}.java",
+    f"./{id}/src/main/java/{id}/{id.capitalize()}Mod.java",
 )
 print("Renamed files")
