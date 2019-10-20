@@ -79,6 +79,7 @@ for root, subdir, file in os.walk(f"./{id}/src/main/java/{id}/"):
                 newLine = newLine.replace("DefaultMod", f"{id.capitalize()}Mod")
                 newLine = newLine.replace("defaultCharacter", f"{id}Character")
                 newLine = newLine.replace("defaultMod", f"{id}Mod")
+                newLine = newLine.replace("Default Mod", name)
                 newLine = newLine.replace(
                     "A base for Slay the Spire to start your own mod from, feat. the Default.",
                     desc,
